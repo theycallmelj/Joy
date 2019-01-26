@@ -55,7 +55,7 @@ void loop() {
         x-= 1;
         analogWrite(motorPin2, x);
       }
-      else{//kills backword momentum
+      else if(x < 0){//kills backword momentum
         digitalWrite(motorPin2, LOW);
         x-= 1;
         analogWrite(motorPin1, x);
