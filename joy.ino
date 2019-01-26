@@ -7,6 +7,7 @@ int minPosResistor = 0;
 int motorP1 = 9;
 int motorP2 = 10;
 
+int slowDownAmt = 1;
 
 int x;
 void setup() {
@@ -52,12 +53,12 @@ void loop() {
     else{// this code ramps it down
       if(x > 0){//kills forward momentum
         digitalWrite(motorPin1, LOW);
-        x-= 1;
+        x-= slowDownAmt;
         analogWrite(motorPin2, x);
       }
       else if(x < 0){//kills backword momentum
         digitalWrite(motorPin2, LOW);
-        x-= 1;
+        x-= slowDownAmt;
         analogWrite(motorPin1, x);
       }
     }
